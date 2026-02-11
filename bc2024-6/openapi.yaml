@@ -1,0 +1,131 @@
+openapi: 3.0.0
+info:
+  title: Notes Service API
+  description: API for managing notes stored in text files.
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:3000'
+    description: Local server
+paths:
+  /notes:
+    get:
+      summary: Get a list of all notes
+      responses:
+        '200':
+          description: A list of all notes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      description: The name of the note (filename)
+                    text:
+                      type: string
+                      description: The content of the note
+        '500':
+          description: Error reading notes
+  /notes/{name}:
+    get:
+      summary: Get a specific note by name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          description: The name of the note to retrieve (filename)
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The content of the note
+          content:
+            text/plain:
+              schema:
+                type: string
+        '404':
+          description: Note not found
+    put:
+      summary: Update an existing note
+      parameters:
+        - name: name
+          in: path
+          required: true
+          description: The name of the note to update (filename)
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          text/plain:
+            schema:
+              type: string
+              description: The new content of the note
+      responses:
+        '200':
+          description: Note updated successfully
+        '404':
+          description: Note not found
+    delete:
+      summary: Delete a specific note
+      parameters:
+        - name: name
+          in: path
+          required: true
+          description: The name of the note to delete (filename)
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Note deleted successfully
+        '404':
+          description: Note not found
+  /write:
+    post:
+      summary: Create a new note
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                note_name:
+                  type: string
+                  description: The name of the note (filename)
+                note:
+                  type: string
+                  description: The content of the note
+      responses:
+        '201':
+          description: Note created successfully
+        '400':
+          description: Note already exists
+        '500':
+          description: Internal server error
+  /UploadForm.html:
+    get:
+      summary: Serve the upload form HTML
+      responses:
+        '200':
+          description: Upload form HTML page
+          content:
+            text/html:
+              schema:
+                type: string
+                format: html
+        '404':
+          description: File not found
+components:
+  schemas:
+    Note:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the note (filename)
+        text:
+          type: string
+          description: The content of the note
