@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "14336db7-fdd0-4240-b002-29d2e7a5f0e5",
+		"name": "bc2024-5",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38947560"
+	},
+	"item": [
+		{
+			"name": "GET /notes/<ім’я нотатки>",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "2131",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/notes/MyNote2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"notes",
+						"MyNote2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /notes/<ім’я нотатки>",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "4",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/notes/MyNote2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"notes",
+						"MyNote2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /notes/<ім’я нотатки>",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/notes/MyNote1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"notes",
+						"MyNote1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /notes",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "POST /write",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "'Content-Type'",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "note_name",
+							"value": "MyNote1",
+							"contentType": "",
+							"type": "text"
+						},
+						{
+							"key": "note",
+							"value": "2131311",
+							"contentType": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/write/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"write",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /UploadForm.html",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

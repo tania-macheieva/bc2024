@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+  <h2>Upload Form</h2>
+
+  <form method="post" action="/write" enctype="multipart/form-data">
+    <label for="note_name_input">Note Name:</label><br>
+    <input type="text" id="note_name_input" name="note_name" required><br><br>
+    <label for="note_input">Note:</label><br>
+    <textarea id="note_input" name="note" rows="4" cols="50" required></textarea><br><br>
+    <button type="submit">Upload</button>
+    </form>
+
+  <p>If you click the "Submit" button, the form-data will be sent to a page called "/write".</p>
+
+</body>
+ 
